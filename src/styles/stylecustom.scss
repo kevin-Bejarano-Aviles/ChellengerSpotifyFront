@@ -1,0 +1,45 @@
+/* @import '~bulma/bulma'; */
+
+
+
+$menu-item-active-background-color:#0d0d0d;
+$menu-item-color:#b3b3b3;
+$menu-item-hover-background-color:#0d0d0d;
+$menu-item-hover-color:#ffffff;
+$menu-item-active-color:#ffff;
+$menu-list-link-padding:15px;
+
+$tag-background-color:#0d0d0d;
+
+$dimensions: 16 24 32 35 42 48 64 96 128 213;
+
+
+
+$table-background-color:#0d0d0d;
+$table-cell-border:0.1px solid rgb(108, 108, 108);
+$table-cell-border-width:0px;
+$table-color:#c7c3c3;
+$table-cell-heading-color:#c7c3c3;
+$table-head-cell-color:#c7c3c3;
+
+
+$input-radius:20px;
+html, body {
+    height: 100%;
+    min-height: 100%;
+    background-color: hsl(0, 0%, 4%);
+}
+
+.sumbitSong{
+    background-color: #0d0d0d;
+    border: none;
+    padding: 0px;
+}
+.sumbitSong:hover{
+    cursor: pointer;
+}
+@import '../../node_modules/bulma/sass/utilities/derived-variables.sass';
+@import '../../node_modules/bulma';
+@import '../components//Hero/HeroContainer.scss';
+@import '../components/navBar/stylesNavBar.scss';
+@import '../components/TableMusics/TableItem.scss'

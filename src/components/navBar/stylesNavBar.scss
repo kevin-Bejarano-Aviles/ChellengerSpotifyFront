@@ -1,0 +1,27 @@
+/* .elnav{
+    height: 100%;
+} */
+.cardnotlogged{
+    // $card-background-color:#242424;
+    background-color: #242424;
+    width: 70%;
+}
+
+.cardSongCustom{
+    background-color: #121212;
+    margin: 5px;
+}
+.cardSongCustom:hover{
+    background-color: #242424;
+}
+
+.tagsCustom {
+    width: 70%;
+}
+.buttoncustom{
+    // border: 3px solid #ffff;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fff !important;
+    
+}
