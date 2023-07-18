@@ -26,14 +26,14 @@ export const ComponentProfile = ({id}:{id:string|undefined}) => {
             {
                 (dataLoaded)
                 ?
-                <div className='column is-three-quarters is-flex is-flex-direction-column '>
-                    <Header/>
+                    <>
                     <HeroContainer
                         nameUser={`email: ${user?.email}`}
                         img={imgUser}
                         titleHero='Perfil'
                         subTitleHero={user?.user_name} 
                     />
+
                     {
                         (user?.id !== userLogged?.id)
                         ? <></>
@@ -77,7 +77,7 @@ export const ComponentProfile = ({id}:{id:string|undefined}) => {
                         }
                         </div>
                     }
-                </div>
+                    </>
                 :
                 <button className='button is-loading'>Loading</button>
             }

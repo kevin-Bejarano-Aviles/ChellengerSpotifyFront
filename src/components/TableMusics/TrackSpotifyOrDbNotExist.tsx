@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { addSong } from "../../hooks/usePost/addSong"
 import { Track } from "../../interfaces/dataMusicsSpotify"
-
+export type FormEvent = React.FormEvent<HTMLFormElement>;
 
 export const TrackSpotifyOrDbNotExist = ({data,userId}:{data:Track,userId:string|undefined}) => {
     const {addSongOnDb} = addSong();
     const navigate = useNavigate();
-    const onSumbit = ()=>{
+    const onSumbit = (event:FormEvent)=>{
+        event.preventDefault()
         addSongOnDb(userId,data);
         navigate('/');
     }

@@ -27,6 +27,7 @@ export const InputSearch = () => {
     const navitation = ()=>{
 
     }
+    const showError = (q.length>0) && (resultSearch.length===0)
     return (
         <>  
             <div className="is-flex is-justify-content-center">
@@ -48,26 +49,22 @@ export const InputSearch = () => {
                 </div>
                 
             </div>
-            {
-                    (resultSearch.length===0 || searchText.length<=1)
-                    ? 
-                    <div className="card m-3">
+
+                    
+                    <div className="card m-3" style={{display:showError ? '':'none' }}>
                             <div className="card-content">
                                 <div className="content has-text-centered ">
                                     No se encontraron resultados de la busqueda
                                 </div>
                             </div>
                     </div>
-                    :
                     <CardSongDb
                         id={user?.id}
                         naviFunction={navitation}
                         titulo="Resultado de la busqueda"
                         tracks={resultSearch}
                     />
-                }
-                
-            
+                        
         </>
     )
 }

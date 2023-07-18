@@ -78,7 +78,7 @@ export const TableItemDb = ({
             </td>
             <td>
                 <div className="mt-2">
-                    <Link to={`${url_track}`}>
+                    <Link to={`${url_track}`} target="_blank">
                     <button className="button is-small is-success is-rounded">
                        Link cancion
                     </button>

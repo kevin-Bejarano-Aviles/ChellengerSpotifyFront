@@ -5,12 +5,11 @@ import { Track } from "../../interfaces/dataSearch"
 
 type PropsCard = {
     titulo:string;
-    id:string;
     tracks:NewTrack[]|Track[]|TrackSpotify[];
     naviFunction: ()=> void;
 }
 
-export const CardSong:React.FC<PropsCard> = ({id,naviFunction,titulo,tracks}) => {
+export const CardSong:React.FC<PropsCard> = ({naviFunction,titulo,tracks}) => {
     
     return (
         <>

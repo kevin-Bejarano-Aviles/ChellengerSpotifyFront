@@ -1,6 +1,5 @@
 import { useMusicsSpotify } from '../../hooks/useGet/useMusicsSpotify';
 import { TableMusicSpotify } from '../../components/TableMusics/TableMusicSpotify';
-import { Header } from '../../components/Header/Header';
 import { HeroContainer } from '../../components/Hero/HeroContainer';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContex';
@@ -18,11 +17,7 @@ export const ViewSpotifyTracks = () => {
     const spotifyImg = 'https://misc.scdn.co/liked-songs/liked-songs-640.png';
     return (
         <>  
-            {
-                (dataLoaded)
-                ? 
-                <div className='column is-three-quarters is-flex is-flex-direction-column '>
-                    <Header/>
+            
                     <HeroContainer 
                         img={spotifyImg} 
                         titleHero='Playlist' 
@@ -49,11 +44,6 @@ export const ViewSpotifyTracks = () => {
                             
                         }
                     </div>
-                </div>
-                :<button className='button is-loading'>Loading</button>
-            }
-            
-            
         </>
     )
 }

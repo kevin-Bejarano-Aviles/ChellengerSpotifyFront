@@ -7,7 +7,7 @@ import { useMusicDb } from "../../hooks/useGet/useMusicDb";
 import { useMusicsSpotify } from "../../hooks/useGet/useMusicsSpotify"
 import { CardSongDb } from "../../components/Card/CardSongDb";
 
-export const ViewInfoLogged = ({id}:{id:string}) => {
+export const ViewInfoLogged = ({id}:{id:string|undefined}) => {
     const navigate = useNavigate();
 
 
@@ -21,7 +21,7 @@ export const ViewInfoLogged = ({id}:{id:string}) => {
     });
     const {allUsers} = useAllUsers();
 
-    const quitarte = (id:string)=>{
+    const quitarte = (id:string|undefined)=>{
         const newUsers = allUsers.filter(user => user.id!==id)
         return newUsers
     }
@@ -37,8 +37,8 @@ export const ViewInfoLogged = ({id}:{id:string}) => {
     }
     return (
         <>  
-            <CardSong naviFunction={pageMusicSpotify} titulo="Musica Spotify" id={id} tracks={allMusicsSpotifyUser}/>
-            <CardSongDb naviFunction={pageMusicDb} titulo="Musica en Bd" id={id} tracks={allMusicUser}/>
+            <CardSong naviFunction={pageMusicSpotify} titulo="Musica Spotify" tracks={allMusicsSpotifyUser}/>
+            <CardSongDb naviFunction={pageMusicDb} titulo="Musica en Bd" tracks={allMusicUser}/>
             <GoshtCard users={newUsers} content={fakeData} titulo="Users" />
         </>
        )

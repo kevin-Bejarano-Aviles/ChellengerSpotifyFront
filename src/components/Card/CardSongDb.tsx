@@ -4,13 +4,13 @@ import { Track as TrackSpotify } from "../../interfaces/dataMusicsSpotify"
 import { Track } from "../../interfaces/dataSearch"
                             
 type PropsCard = {
+    id?:string|undefined
     titulo:string;
-    id:string|undefined;
     tracks:NewTrack[]|Track[]|TrackSpotify[];
     naviFunction: ()=> void;
 }
 
-export const CardSongDb:React.FC<PropsCard> = ({id,naviFunction,titulo,tracks}) => {
+export const CardSongDb:React.FC<PropsCard> = ({naviFunction,titulo,tracks}) => {
     console.log({tracks})
     return (
         <>
@@ -19,7 +19,7 @@ export const CardSongDb:React.FC<PropsCard> = ({id,naviFunction,titulo,tracks}) 
                     <div className="is-flex is-justify-content-space-between">
                         <span className="ml-2 is-size-4 has-text-weight-bold has-text-white">{titulo}</span>
                         {/* <Link to={`user/${id}/music/spotify`}> */}
-                            <button onClick={naviFunction} className="button is-dark has-background-black"><span>Mostrar todo</span></button> 
+                            <button  className="button is-dark has-background-black"><span>Mostrar todo</span></button> 
                         {/* </Link> */}
                     </div>
                     <div className="is-flex is-justify-content-flex-start is-flex-wrap-wrap">

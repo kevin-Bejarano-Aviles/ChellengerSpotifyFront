@@ -15,7 +15,10 @@ export const useAllUsers = () => {
     const getAllUsers = async()=>{
         try {
             const response = await apiSpotify.get<AllUsers>('/api/user',{
-                withCredentials:true
+                withCredentials:true,
+                headers:{
+                    
+                }
             });
             setAllUsers(response.data.users)
             setCantUsers(response.data.length);

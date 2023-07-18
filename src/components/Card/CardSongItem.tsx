@@ -23,7 +23,7 @@ export const CardItem = ({
     return (
         <>
             <div className="card has-background-grey-dark m-3">
-                <Link to={`${url_track}`}>
+                <Link to={`${url_track}`} target="_blank">
                     <div className="card-image">
                         <figure className="m-3 image is-213x213">
                             <img src={image_preview_max} alt={`imgSong ${track_name}`} />

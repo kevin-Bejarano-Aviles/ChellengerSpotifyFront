@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContex"
 import { useMusicDb } from "../../hooks/useGet/useMusicDb"
-import { Header } from '../../components/Header/Header';
 import { HeroContainer } from "../../components/Hero/HeroContainer";
 import { TableMusicDb } from "../../components/TableMusics/TableMusicDb";
 import Buttons from "./Buttons";
@@ -20,8 +19,6 @@ export const ViewDbTracks = () => {
     const spotifyImg = 'https://misc.scdn.co/liked-songs/liked-songs-640.png'
     return(
         <>
-            <div className='column is-three-quarters is-flex is-flex-direction-column '>
-                <Header/>
                 <HeroContainer
                     img={spotifyImg}
                     titleHero="Playlist"
@@ -56,7 +53,7 @@ export const ViewDbTracks = () => {
                     }
                     
                 </div>
-            </div>
+
         </>
     )
 }
