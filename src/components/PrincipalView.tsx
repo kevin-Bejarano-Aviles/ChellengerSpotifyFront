@@ -1,4 +1,4 @@
-import { AuthContext } from "../../context/AuthContex";
+import { AuthContext } from "../context";
 import { ViewInfoLogged} from './ViewInfoLogged';
 import { useContext } from 'react';
 

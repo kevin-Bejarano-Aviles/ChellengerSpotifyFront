@@ -1,26 +1,17 @@
-import { Header } from "../../components/Header/Header"
-import { HeroContainer } from "../../components/Hero/HeroContainer"
-import imgUser from '../../assets/spotify/images.png'
-import { useProfile } from "../../hooks/useGet/useProfile"
-import { TableMusicDb } from "../../components/TableMusics/TableMusicDb"
-import { useMusicDb } from "../../hooks/useGet/useMusicDb"
-import { useContext } from "react"
-import { AuthContext } from "../../context/AuthContex"
-import { useNavigate } from "react-router-dom"
 
+import { HeroContainer } from "./Hero/HeroContainer"
+import imgUser from '../assets/spotify/images.png'
+import { useProfile,useMusicDb } from "../hooks/useGet";
+import { TableMusicDb } from "./TableMusics/TableMusicDb"
 
 export const ComponentProfile = ({id}:{id:string|undefined}) => {
-    const {user:userLogged,logout} = useContext(AuthContext)
     const {user} = useProfile(id)
     const {allMusicUser,dataLoaded,limit,total,resetLimit,updateLimit} = useMusicDb(user?.id,{
         initialLimit:5,
         initialOffset:0
     });
-    const navigate = useNavigate()
-    const onLogOut = ()=>{
-        logout()
-        navigate('/')
-    }
+    
+    
     return (
         <>
             {
@@ -34,14 +25,7 @@ export const ComponentProfile = ({id}:{id:string|undefined}) => {
                         subTitleHero={user?.user_name} 
                     />
 
-                    {
-                        (user?.id !== userLogged?.id)
-                        ? <></>
-                        : 
-                        <div className="is-flex is-justify-content-center">
-                            <button onClick={onLogOut} className="button is-dark is-rounded">Cerrar sesión</button>
-                        </div>
-                    }
+                   
                     
                     {
                          ( allMusicUser.length===0)

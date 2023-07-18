@@ -1,5 +1,5 @@
-import { GoshtCard } from "../../components/Card/GoshtCard"
-import { data } from "../../data/dataFake"
+import { GoshtCard } from "./Card/GoshtCard"
+import { data } from "../data/dataFake"
 
 
 

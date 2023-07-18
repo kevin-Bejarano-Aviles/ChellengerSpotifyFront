@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import { AuthContext } from "../../context/AuthContex"
-import { useMusicDb } from "../../hooks/useGet/useMusicDb"
-import { HeroContainer } from "../../components/Hero/HeroContainer";
-import { TableMusicDb } from "../../components/TableMusics/TableMusicDb";
+import { AuthContext } from "../context"
+import { useMusicDb } from "../hooks/useGet"
+import { HeroContainer } from "./Hero/HeroContainer";
+import { TableMusicDb } from "./TableMusics/TableMusicDb";
 import Buttons from "./Buttons";
 
 

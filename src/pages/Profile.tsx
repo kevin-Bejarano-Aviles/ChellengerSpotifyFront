@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { RouteParams } from "../interfaces/RoutesParams"
-import { ComponentProfile } from "../profile/components/ComponentProfile"
+import { ComponentProfile } from "../components/ComponentProfile"
 
 
 

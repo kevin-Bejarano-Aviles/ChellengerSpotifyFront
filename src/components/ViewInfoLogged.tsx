@@ -1,11 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { CardSong } from "../../components/Card/CardSong";
-import { GoshtCard } from "../../components/Card/GoshtCard";
-import { data } from "../../data/dataFake";
-import { useAllUsers } from "../../hooks/useGet/useAllUsers";
-import { useMusicDb } from "../../hooks/useGet/useMusicDb";
-import { useMusicsSpotify } from "../../hooks/useGet/useMusicsSpotify"
-import { CardSongDb } from "../../components/Card/CardSongDb";
+import { CardSong } from "./Card/CardSong";
+import { GoshtCard } from "./Card/GoshtCard";
+import { data } from "../data/dataFake";
+import { useAllUsers,useMusicDb,useMusicsSpotify } from "../hooks/useGet";
+import { CardSongDb } from "./Card/CardSongDb";
 
 export const ViewInfoLogged = ({id}:{id:string|undefined}) => {
     const navigate = useNavigate();

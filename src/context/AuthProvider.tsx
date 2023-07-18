@@ -1,8 +1,7 @@
 import { useEffect, useReducer} from "react"
 import { apiSpotify } from "../services/apiGet/initApi";
 import { UserLogged} from '../interfaces/userLogged';
-import { AuthContext } from "./AuthContex";
-import { authReducer } from "./authReducer";
+import { AuthContext,authReducer } from "./";
 import { AuthAction, AuthState,tipos} from "./types";
 
 const initialState:AuthState = {
@@ -25,13 +24,14 @@ export const AuthProvider = ({children}:{children:React.ReactNode})=>{
             const response = await apiSpotify.get('/api/auth/logout',{
                 withCredentials:true
             })
-            console.log({response:response.data});
+
             const action:AuthAction = {
                 type:tipos.logout,
                 payload:null
             }
             dispatch(action);
-            console.log('te saliste wey');
+            
+            console.log(response.data);
             
         } catch (error) {
             
@@ -43,12 +43,12 @@ export const AuthProvider = ({children}:{children:React.ReactNode})=>{
             const {data} = await apiSpotify.get<UserLogged>('/api/auth/login',{
                 withCredentials:true
             });
+
             if(data.user){
                 const action:AuthAction = {
                     type:tipos.login,
                     payload:data.user
                 }
-                // localStorage.setItem('user',JSON.stringify(data.user))
                 dispatch(action);
             }else{
                 const action:AuthAction = {

@@ -1,10 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { PrivateRoutes } from "./PrivateRoutes";
-import { RoutesLogged } from "./RoutesLogged";
-import { childSpotifyRoutes } from "./childSpotifyRoutes";
-import { PublicRoutes } from "./PublicRoutes";
-import { HomeNotLogged } from "../pages/HomeNotLogged";
-import { ErrorPage } from "../pages/ErrorPage";
+import { PrivateRoutes,PublicRoutes,RoutesLogged,childSpotifyRoutes } from "./";
+import { HomeNotLogged , ErrorPage} from "../pages";
 
 const routesConfig = createBrowserRouter([
     {

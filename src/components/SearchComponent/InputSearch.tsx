@@ -3,8 +3,8 @@ import queryString,{ParsedQuery} from "query-string"
 import { useSearch } from "../../hooks/useGet/useSearch"
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContex"
-import { useForm } from "../hooks/useForm"
-import { CardSongDb } from "../../components/Card/CardSongDb"
+import { useForm } from "../../hooks/useForm"
+import { CardSongDb } from "../Card/CardSongDb"
 
 interface MyQuery extends ParsedQuery {
     q:string

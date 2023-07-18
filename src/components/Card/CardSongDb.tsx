@@ -18,9 +18,8 @@ export const CardSongDb:React.FC<PropsCard> = ({naviFunction,titulo,tracks}) => 
                 <div className="hero-body is-flex is-flex-direction-column pl-0 pb-0 pt-3">
                     <div className="is-flex is-justify-content-space-between">
                         <span className="ml-2 is-size-4 has-text-weight-bold has-text-white">{titulo}</span>
-                        {/* <Link to={`user/${id}/music/spotify`}> */}
-                            <button  className="button is-dark has-background-black"><span>Mostrar todo</span></button> 
-                        {/* </Link> */}
+                        
+                            <button onClick={naviFunction} className="button is-dark has-background-black"><span>Mostrar todo</span></button> 
                     </div>
                     <div className="is-flex is-justify-content-flex-start is-flex-wrap-wrap">
                         {

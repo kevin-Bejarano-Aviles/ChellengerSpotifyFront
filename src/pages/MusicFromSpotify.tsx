@@ -1,4 +1,4 @@
-import { ViewSpotifyTracks } from "../musicDB&Spotify/components/ViewSpotifyTracks"
+import { ViewSpotifyTracks } from "../components/ViewSpotifyTracks"
 
 
 export const MusicFromSpotify = () => {

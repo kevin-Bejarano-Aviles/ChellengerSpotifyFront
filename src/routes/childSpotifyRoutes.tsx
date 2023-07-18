@@ -1,9 +1,11 @@
 import { Navigate } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { MusicFromDb } from "../pages/MusicFromDb";
-import { MusicFromSpotify } from "../pages/MusicFromSpotify";
-import { Profile } from "../pages/Profile";
-import { Search } from "../pages/Search";
+import { 
+    Home,
+    Profile,
+    Search,
+    MusicFromDb,
+    MusicFromSpotify 
+} from "../pages";
 
 
 export const childSpotifyRoutes =  [

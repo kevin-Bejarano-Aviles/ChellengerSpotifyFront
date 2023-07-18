@@ -1,8 +1,8 @@
-import { useMusicsSpotify } from '../../hooks/useGet/useMusicsSpotify';
-import { TableMusicSpotify } from '../../components/TableMusics/TableMusicSpotify';
-import { HeroContainer } from '../../components/Hero/HeroContainer';
+import { useMusicsSpotify } from '../hooks/useGet';
+import { TableMusicSpotify } from './TableMusics/TableMusicSpotify';
+import { HeroContainer } from './Hero/HeroContainer';
 import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContex';
+import { AuthContext } from '../context';
 // import { convertirAHora, sumDuration } from '../../helpers/MilisegToMin';
 
 

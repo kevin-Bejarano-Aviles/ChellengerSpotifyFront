@@ -1,4 +1,4 @@
-import { PrincipalView } from "../home/components/PrincipalView";
+import { PrincipalView } from "../components/PrincipalView";
 
 export const Home = () => {
   return (
