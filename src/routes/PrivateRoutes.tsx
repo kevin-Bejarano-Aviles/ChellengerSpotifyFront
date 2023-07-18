@@ -8,9 +8,11 @@ interface MyComponentProp {
 
 export const PrivateRoutes:React.FC<MyComponentProp>= ({children}) => {
     const {logged} = useContext(AuthContext);
+    console.log({logged});
+    
+    const cosa = true
 
-
-    return logged ? children : <Navigate to={'/home'}/>
+    return cosa ? children : <Navigate to={'/home'}/>
 
 
 }

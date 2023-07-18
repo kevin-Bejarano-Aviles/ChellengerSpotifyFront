@@ -1,23 +1,27 @@
 import { useEffect, useReducer} from "react"
 import { apiSpotify } from "../services/apiGet/initApi";
 import { UserLogged} from '../interfaces/userLogged';
-import { AuthContext,authReducer } from "./";
+import { AuthContext} from "./AuthContex";
+import {authReducer} from './authReducer'
 import { AuthAction, AuthState,tipos} from "./types";
 
 const initialState:AuthState = {
     logged:false,
     user:null,
-    logout:async()=>{
-
-    }
+    logout:async()=>{}
 }
 export const AuthProvider = ({children}:{children:React.ReactNode})=>{
     const [authState,dispatch] = useReducer(authReducer,initialState)
     // const [user, setUser] = useState<User|null>(null);
 
-
+    //usememo
+    //todo 
+    // ver como solucionar para que no se dispare el useEffect
+    
     useEffect(()=>{
         checkIfUserLogin()
+        console.log('asdasdasd');
+        
     },[])
     const logoutFuntion = async()=>{
         try {
@@ -34,7 +38,7 @@ export const AuthProvider = ({children}:{children:React.ReactNode})=>{
             console.log(response.data);
             
         } catch (error) {
-            
+            console.log(error);
         }
         
     }
