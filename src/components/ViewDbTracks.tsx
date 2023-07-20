@@ -10,11 +10,11 @@ import Buttons from "./Buttons";
 
 export const ViewDbTracks = () => {
     const {user} = useContext(AuthContext)
-    const {allMusicUser,updateLimit,limit,total,dataLoaded,resetLimit} = useMusicDb(user?.id,{
+    const {allMusicDbUser,updateLimit,limitMusicDb,totalMusicDb,loadingMusicDb,resetLimit} = useMusicDb(user?.id,{
         initialLimit:5,
         initialOffset:0
     });
-    console.log(allMusicUser);
+    // console.log(allMusicUser);
     
     const spotifyImg = 'https://misc.scdn.co/liked-songs/liked-songs-640.png'
     return(
@@ -24,11 +24,11 @@ export const ViewDbTracks = () => {
                     titleHero="Playlist"
                     subTitleHero="Lista DB"
                     nameUser={user?.userName}
-                    totalSongs={total}
+                    totalSongs={totalMusicDb}
                 />
                 <div>
                     {
-                        ( allMusicUser.length===0 )
+                        ( allMusicDbUser.length===0 )
                         ?
                         <div className="card m-3">
                             <div className="card-content">
@@ -40,13 +40,13 @@ export const ViewDbTracks = () => {
                         :
                         <>
                             <TableMusicDb
-                                dataLoaded={dataLoaded}
-                                musics={allMusicUser}
+                                dataLoaded={loadingMusicDb}
+                                musics={allMusicDbUser}
                             />
                             <Buttons
-                                limit={limit}
+                                limit={limitMusicDb}
                                 resetLimit={resetLimit}
-                                total={total}
+                                total={totalMusicDb}
                                 updateLimit={updateLimit} 
                             />
                         </>

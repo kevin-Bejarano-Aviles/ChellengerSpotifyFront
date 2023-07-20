@@ -8,12 +8,10 @@ import { AuthContext } from '../context';
 
 export const ViewSpotifyTracks = () => {
     const {user} = useContext(AuthContext)
-    const {allMusicsSpotifyUser,updateLimit,total,dataLoaded,limit,resetLimit} = useMusicsSpotify(user?.id,{
+    const {allMusicsSpotifyUser,updateLimit,totalMusicSpotify,loadingMusicSpotify,limitMusicSpotify,resetLimit} = useMusicsSpotify(user?.id,{
         initialLimit:5,
         initialOffset:0
     });
-    // const totalDurationMs = sumDuration(allMusicsSpotifyUser);
-    // const {horas,minutosRestantes} = convertirAHora(totalDurationMs);
     const spotifyImg = 'https://misc.scdn.co/liked-songs/liked-songs-640.png';
     return (
         <>  
@@ -23,15 +21,14 @@ export const ViewSpotifyTracks = () => {
                         titleHero='Playlist' 
                         subTitleHero='Lista Spotify'
                         nameUser={user?.userName}
-                        totalSongs={total}
-                        // cantHoras={`${horas}:${minutosRestantes}`}
+                        totalSongs={totalMusicSpotify}
 
                     />
                     
                     <div>
-                        <TableMusicSpotify dataLoaded={dataLoaded} musics={allMusicsSpotifyUser}/> 
+                        <TableMusicSpotify dataLoaded={loadingMusicSpotify} musics={allMusicsSpotifyUser}/> 
                         {
-                            (!(limit>=total))//raro
+                            (!(limitMusicSpotify>=totalMusicSpotify))//raro
                             ? 
                             <div className='is-flex is-justify-content-center'>
                                 <button onClick={()=>updateLimit(5)} className='button is-dark is-rounded'>Mostrar mas</button>

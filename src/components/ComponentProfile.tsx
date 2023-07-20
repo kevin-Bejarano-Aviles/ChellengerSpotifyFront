@@ -4,18 +4,25 @@ import imgUser from '../assets/spotify/images.png'
 import { useProfile,useMusicDb } from "../hooks/useGet";
 import { TableMusicDb } from "./TableMusics/TableMusicDb"
 
-export const ComponentProfile = ({id}:{id:string|undefined}) => {
-    const {user} = useProfile(id)
-    const {allMusicUser,dataLoaded,limit,total,resetLimit,updateLimit} = useMusicDb(user?.id,{
+export const ComponentProfile =  ({id}:{id:string}) => {
+    const {user,loadingProfile} =  useProfile(id);
+    const {allMusicDbUser,loadingMusicDb,limitMusicDb,totalMusicDb,resetLimit,updateLimit} = useMusicDb(user?.id,{
         initialLimit:5,
         initialOffset:0
     });
+
+    console.log({user,loadingProfile});
+
+    console.log({loadingMusicDb});
+    
+    
+
     
     
     return (
         <>
             {
-                (dataLoaded)
+                (loadingMusicDb)
                 ?
                     <>
                     <HeroContainer
@@ -28,7 +35,7 @@ export const ComponentProfile = ({id}:{id:string|undefined}) => {
                    
                     
                     {
-                         ( allMusicUser.length===0)
+                         ( allMusicDbUser.length===0)
                          ?
                          <div className="card m-3">
                             <div className="card-content">
@@ -41,13 +48,13 @@ export const ComponentProfile = ({id}:{id:string|undefined}) => {
                         <div className="is-flex is-flex-direction-column">
                        
                             <TableMusicDb
-                                dataLoaded={dataLoaded}
-                                musics={allMusicUser}                        
+                                dataLoaded={loadingMusicDb}
+                                musics={allMusicDbUser}                        
                             />
                         
                             
                         {
-                                (!(limit>=total))//raro
+                                (!(limitMusicDb>=totalMusicDb))//raro
                                 ? 
                                 <div className='is-flex is-justify-content-center'>
                                     <button onClick={()=>updateLimit(5)} className='button is-dark is-rounded'>Mostrar mas</button>

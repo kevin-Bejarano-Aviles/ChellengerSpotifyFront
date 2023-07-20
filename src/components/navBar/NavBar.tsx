@@ -3,9 +3,6 @@ import { NavEnd } from "./NavEnd"
 
 
 export const NavBar = () => {
-    const active = ()=>{
-        return 'is-active'
-    }
     return (
     <>  
         <nav className="column is-desktop is-flex is-flex-direction-column has-background-black elnav">
@@ -48,6 +45,7 @@ export const NavBar = () => {
             </aside>
             <NavEnd/>
         </nav>
+        
     </>
   )
 }

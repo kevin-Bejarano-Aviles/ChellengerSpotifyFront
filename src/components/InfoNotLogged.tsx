@@ -1,14 +1,13 @@
-import { GoshtCard } from "./Card/GoshtCard"
-import { data } from "../data/dataFake"
+import { CardHeroDefaultNotLoggin } from "./CardList/CardDefaultNotLoggin/CardHeroDefaultNotLoggin"
+
 
 
 
 export const InfoNotLogged = () => {
-    const fakeData = data;
+
     return (
         <>
-            <GoshtCard content={fakeData} titulo="User not logged" />
-            <GoshtCard content={fakeData} titulo="User not logged" />
+            <CardHeroDefaultNotLoggin/>
         </>
    )
 }

@@ -7,7 +7,7 @@ enum Greetings {
 
 export const greetingHours = ()=>{
     const hours = new Date().getHours();
-    console.log(hours);
+    // console.log(hours);
     
     if( hours>=9 && hours<=12){
         return Greetings.Dias

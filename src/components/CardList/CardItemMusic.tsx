@@ -9,14 +9,14 @@ export const CardItem = ({
     track_name,
     album,
     image_preview_max,
-    duration_ms
+    duration_ms,
 }:{
     id:string,
     url_track:string,
     track_name:string,
     album:string
     image_preview_max:string,
-    duration_ms:number
+    duration_ms:number,
 }) => {
     const {min,seg} = convertMiliSegToMinSeg(duration_ms)
     
@@ -44,7 +44,6 @@ export const CardItem = ({
                         
                     </div>
                 </Link>
-                
             </div>
         </>
     )

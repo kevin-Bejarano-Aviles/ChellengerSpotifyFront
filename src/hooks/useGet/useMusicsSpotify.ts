@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from 'react';
 import { AllMusicsOfSpotify, Track } from "../../interfaces/dataMusicsSpotify";
 import { apiSpotify } from "../../services/apiGet/initApi";
 import { UseApiDataOptions } from "../../interfaces/userApiDataOptions";
+import { AxiosError } from "axios";
+import { AuthContext } from '../../context';
 
 
 export const useMusicsSpotify = (id:string|undefined,{initialLimit=1,initialOffset=0}:UseApiDataOptions) => {
     const [allMusicsSpotifyUser, setAllMusicsSpotifyUser] = useState<Track[]>([]);
-    const [limit, setLimit] = useState<number>(initialLimit);
-    const [offset, setOffset] = useState<number>(initialOffset);
-    const [total, setTotal] = useState<number>(0);
-    const [dataLoaded, setDataLoaded] = useState(false);
+    const [limitMusicSpotify, setLimitMusicSpotify] = useState(initialLimit);
+    const [offsetMusicSpotify, setoffsetMusicSpotify] = useState(initialOffset);
+    const [totalMusicSpotify, setTotalMusicSpotify] = useState(0);
+    const [loadingMusicSpotify, setLoadingMusicSpotify] = useState(false);
+    const {logout} = useContext(AuthContext)
     useEffect(() => {
-        getAllMusicOfSpotifyUser(id,limit,offset)
-    }, [id, limit, offset, total]);
+        getAllMusicOfSpotifyUser(id,initialLimit,initialOffset)
+    }, [id, initialLimit, initialOffset, offsetMusicSpotify, totalMusicSpotify]);
 
     
     const getAllMusicOfSpotifyUser = async(id:string|undefined,limit:number,offset:number)=>{
@@ -22,30 +25,37 @@ export const useMusicsSpotify = (id:string|undefined,{initialLimit=1,initialOffs
                 withCredentials:true
             });
             setAllMusicsSpotifyUser(response.data.tracks);
-            setTotal(response.data.total);
-            setDataLoaded(true);
-                
+            setTotalMusicSpotify(response.data.total);
+            setLoadingMusicSpotify(true);
         } catch (error) {
+
+            const err = error as AxiosError
+            if(err.response?.status === 401){
+                localStorage.removeItem('user');
+                logout()
+                window.location.href = '/';
+            }
+            setLoadingMusicSpotify(false);
             console.log(error);
         }
     }
 
     const updateLimit = (value:number = 1)=>{
-        setLimit((current)=>current + value);
+        setLimitMusicSpotify((current)=>current + value);
     }
 
     const updateOffset = (value:number)=>{
-        setOffset((current)=>current +value)
+        setoffsetMusicSpotify((current)=>current +value)
     }
     const resetLimit = ()=>{
-        setLimit(initialLimit)
+        setLimitMusicSpotify(initialLimit)
     }
     return {
         allMusicsSpotifyUser,
-        total,
-        limit,
-        offset,
-        dataLoaded,
+        totalMusicSpotify,
+        limitMusicSpotify,
+        offsetMusicSpotify,
+        loadingMusicSpotify,
         //methods
         
         resetLimit,

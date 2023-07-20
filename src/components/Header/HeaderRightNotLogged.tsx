@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
-import { login } from "../../helpers/Login"
+// import { login } from "../../helpers/Login"
+import { useContext } from 'react';
+import { AuthContext } from "../../context";
 
 
 export const HeaderRightNotLogged = () => {
+    const {login} = useContext(AuthContext)
     return (
 
         <>

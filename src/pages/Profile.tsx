@@ -6,9 +6,11 @@ import { ComponentProfile } from "../components/ComponentProfile"
 
 export const Profile = () => {
     const {id} = useParams<RouteParams>()
+    console.log(id);
+    
     return (
     <>
-        <ComponentProfile id={id}/>
+        <ComponentProfile id={id!}/>
     </>
   )
 }

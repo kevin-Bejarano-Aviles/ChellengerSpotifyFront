@@ -4,30 +4,31 @@ import { useSearch } from "../../hooks/useGet/useSearch"
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContex"
 import { useForm } from "../../hooks/useForm"
-import { CardSongDb } from "../Card/CardSongDb"
-
+import { CardHeroSearch } from "../CardList/CardSearch/CardHeroSearch"
+type FormEvent = React.FormEvent<HTMLFormElement>;
 interface MyQuery extends ParsedQuery {
     q:string
 }
 export const InputSearch = () => {
+    const {user} = useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
     const query:MyQuery = queryString.parse(location.search) as MyQuery
     const {q=''} = query;
-    const {user} = useContext(AuthContext);
     const {searchText,onChange} = useForm({
         searchText:q
     });
-    const {resultSearch} = useSearch(user?.id,searchText);
-    const onSearchSumbit = (event:any)=>{
+    
+    
+    
+    const onSearchSumbit = (event:FormEvent)=>{
         event.preventDefault();
-        navigate(`q=${searchText}`)
-        console.log({searchText});
+        navigate(`?q=${searchText}`)
     }
-    const navitation = ()=>{
+    // if(searchText.length<=1)return
 
-    }
-    const showError = (q.length>0) && (resultSearch.length===0)
+    const {resultSearch,loadingSearch} = useSearch(user?.id,searchText);
+    // const showError = (q.length>0) && (resultSearch.length===0)
     return (
         <>  
             <div className="is-flex is-justify-content-center">
@@ -49,21 +50,24 @@ export const InputSearch = () => {
                 </div>
                 
             </div>
-
-                    
-                    <div className="card m-3" style={{display:showError ? '':'none' }}>
+            <CardHeroSearch
+                length={searchText.length}
+                loading = {loadingSearch}
+                results={ resultSearch }
+            />
+                   {/*  <div className="card m-3" style={{display:showError ? '':'none' }}>
                             <div className="card-content">
                                 <div className="content has-text-centered ">
                                     No se encontraron resultados de la busqueda
                                 </div>
                             </div>
-                    </div>
-                    <CardSongDb
+                    </div> */}
+                    {/* <CardSongDb
                         id={user?.id}
                         naviFunction={navitation}
                         titulo="Resultado de la busqueda"
                         tracks={resultSearch}
-                    />
+                    /> */}
                         
         </>
     )

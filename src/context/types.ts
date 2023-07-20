@@ -13,4 +13,5 @@ export interface AuthState {
     user: User | null;
     logged:boolean
     logout:()=>Promise<void>
+    login:()=>void
   }
